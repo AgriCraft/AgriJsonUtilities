@@ -1,0 +1,3 @@
+[submodule "AgriPlants"]
+	path = lib/AgriPlants
+	url = https://github.com/AgriCraft/AgriPlants

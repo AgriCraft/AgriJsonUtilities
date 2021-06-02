@@ -1,0 +1,53 @@
+#################
+## Ignore File
+#################
+
+# Gradle Stuff
+.gradle
+gradle.properties
+
+# Netbeans
+.nb-gradle
+nbproject
+
+# VSCode
+.vscode
+.classpath
+.project
+.settings
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Build results
+[Dd]ist/
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Mac Junk
+.DS_Store
+
+# Ignore Auto-generated Configuration Files
+[Cc]onfig/**
+
+# Ignore Dependencies
+libs/
+
+# JetBrains
+.idea/
+
+#libs
+lib/
