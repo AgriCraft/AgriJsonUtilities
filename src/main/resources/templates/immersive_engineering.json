@@ -1,0 +1,31 @@
+{
+  "<agri_json_processor_config>": {
+    "target": "plant",
+    "directory": "immersive_engineering",
+    "process": [
+      "type",
+      "conditions",
+      "plant",
+      "growthTicks",
+      "growthStatFactor"
+    ]
+  },
+  "type": {
+    "type": "copy",
+    "value": "agricraft:agri_cloche_recipe"
+  },
+  "conditions": {
+    "type": "loaded_mod_conditions",
+    "include": ["immersiveengineering"]
+  },
+  "plant": {
+    "type": "plant_id"
+  },
+  "growthTicks": {
+    "type": "growth_ticks",
+    "base": "750"
+  },
+  "growthStatFactor": {
+    "type": "growth_stat_factor"
+  }
+}

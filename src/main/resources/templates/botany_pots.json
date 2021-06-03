@@ -1,0 +1,31 @@
+{
+  "<agri_json_processor_config>": {
+    "target": "plant",
+    "directory": "botany_pots",
+    "process": [
+      "type",
+      "conditions",
+      "plant",
+      "growthTicks",
+      "growthStatFactor"
+    ]
+  },
+  "type": {
+    "type": "copy",
+    "value": "agricraft:botany_pots_crop"
+  },
+  "conditions": {
+    "type": "loaded_mod_conditions",
+    "include": ["botanypots"]
+  },
+  "plant": {
+    "type": "plant_id"
+  },
+  "growthTicks": {
+    "type": "growth_ticks",
+    "base": "1200"
+  },
+  "growthStatFactor": {
+    "type": "growth_stat_factor"
+  }
+}
