@@ -1,6 +1,6 @@
-package com.agricraft.agrijsonutilities.jsonrecipegen.processors;
+package com.agricraft.agrijsonutilities.json.processors;
 
-import com.agricraft.agrijsonutilities.jsonrecipegen.IJsonElementProcessor;
+import com.agricraft.agrijsonutilities.json.IJsonElementProcessor;
 import com.agricraft.agrijsonutilities.util.AgriJson;
 import com.agricraft.agrijsonutilities.util.AgriJsonType;
 import com.agricraft.agrijsonutilities.util.InvalidAgriJsonTypeException;
@@ -8,10 +8,10 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
-public class ProcessorPlantId implements IJsonElementProcessor {
+public class ProcessorGrowthStatFactor implements IJsonElementProcessor {
     @Override
     public String type() {
-        return "plant_id";
+        return "growth_stat_factor";
     }
 
     @Override
@@ -19,6 +19,6 @@ public class ProcessorPlantId implements IJsonElementProcessor {
         if(source.getType() != AgriJsonType.PLANT) {
             throw new InvalidAgriJsonTypeException(this.type() + " json processor expects a plant json as source object");
         }
-       return new JsonPrimitive(source.getJson().get("id").getAsString());
+        return new JsonPrimitive(source.getJson().get("growth_bonus").getAsDouble()/source.getJson().get("growth_chance").getAsDouble());
     }
 }

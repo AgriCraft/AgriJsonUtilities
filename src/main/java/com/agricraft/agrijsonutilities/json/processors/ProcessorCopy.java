@@ -1,6 +1,6 @@
-package com.agricraft.agrijsonutilities.jsonrecipegen.processors;
+package com.agricraft.agrijsonutilities.json.processors;
 
-import com.agricraft.agrijsonutilities.jsonrecipegen.IJsonElementProcessor;
+import com.agricraft.agrijsonutilities.json.IJsonElementProcessor;
 import com.agricraft.agrijsonutilities.util.AgriJson;
 import com.agricraft.agrijsonutilities.util.InvalidAgriJsonTypeException;
 import com.google.gson.JsonElement;

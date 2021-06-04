@@ -1,11 +1,9 @@
-package com.agricraft.agrijsonutilities.jsonrecipegen;
+package com.agricraft.agrijsonutilities.json;
 
 import com.agricraft.agrijsonutilities.util.AgriJson;
 import com.agricraft.agrijsonutilities.util.InvalidAgriJsonTypeException;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-
-import java.util.Optional;
 
 public interface IJsonElementProcessor {
     String type();

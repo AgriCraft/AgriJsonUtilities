@@ -1,6 +1,6 @@
-package com.agricraft.agrijsonutilities.jsonrecipegen;
+package com.agricraft.agrijsonutilities.json;
 
-import com.agricraft.agrijsonutilities.jsonrecipegen.processors.*;
+import com.agricraft.agrijsonutilities.json.processors.*;
 import com.google.common.collect.Maps;
 
 import java.util.Map;

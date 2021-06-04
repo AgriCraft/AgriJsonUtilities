@@ -1,4 +1,4 @@
-package com.agricraft.agrijsonutilities.jsonrecipegen;
+package com.agricraft.agrijsonutilities.json;
 
 import com.agricraft.agrijsonutilities.util.AgriJson;
 import com.google.gson.JsonObject;
