@@ -54,3 +54,6 @@ lib/
 
 #run dir
 run/
+
+#token
+token.txt

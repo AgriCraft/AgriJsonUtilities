@@ -2,13 +2,13 @@ package com.agricraft.agrijsonutilities.json;
 
 import com.google.gson.JsonObject;
 
-import java.nio.file.Path;
+import java.io.File;
 
 public class AgriJsonOutput {
     private final JsonObject json;
-    private final Path path;
+    private final File path;
 
-    public AgriJsonOutput(JsonObject json, Path path) {
+    public AgriJsonOutput(JsonObject json, File path) {
         this.json = json;
         this.path = path;
     }
@@ -17,7 +17,7 @@ public class AgriJsonOutput {
         return this.json;
     }
 
-    public Path getPath() {
+    public File getPath() {
         return this.path;
     }
 }

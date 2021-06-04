@@ -4,12 +4,12 @@ import com.google.gson.JsonObject;
 
 public class AgriJson {
     private final JsonObject json;
-    private final String subDir;
+    private final String originalPath;
     private final AgriJsonType type;
 
-    public AgriJson(JsonObject json, String subDir, AgriJsonType type) {
+    public AgriJson(JsonObject json, String originalPath, AgriJsonType type) {
         this.json = json;
-        this.subDir = subDir;
+        this.originalPath = originalPath;
         this.type = type;
     }
 
@@ -17,8 +17,8 @@ public class AgriJson {
         return this.json;
     }
 
-    public String getSubDir() {
-        return this.subDir;
+    public String getOriginalPath() {
+        return this.originalPath;
     }
 
     public AgriJsonType getType() {
