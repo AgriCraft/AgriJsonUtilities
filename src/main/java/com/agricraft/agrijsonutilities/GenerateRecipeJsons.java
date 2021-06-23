@@ -68,7 +68,7 @@ public class GenerateRecipeJsons {
                 source.getOriginalPath().lastIndexOf('/') + 1,
                 source.getOriginalPath().lastIndexOf('_'));
         String subDir = source.getOriginalPath().substring(0, source.getOriginalPath().indexOf('/')).replace("mod_", "");
-        File directory = new File(output.getPath(), subDir);
+        File directory = new File(new File(output.getPath(), subDir), "plants");
         if(directory.exists() || directory.mkdirs()) {
             File outputFile = new File(directory, name + ".json");
             if(!outputFile.exists() || outputFile.delete()) {
