@@ -9,6 +9,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import javax.annotation.Nullable;
 import java.io.*;
 import java.net.URL;
 import java.util.Arrays;
@@ -22,8 +23,8 @@ public class GenerateRecipeJsons {
         try {
             JsonParser parser = new JsonParser();
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String token = args.length > 0 ? args[0] : null;
-            new GitHubFetcher(parser, token).processTemplates(loadTemplates(parser)).forEach(pair -> {
+            Config config = new Config(args);
+            new GitHubFetcher(parser, config.getToken()).processTemplates(loadTemplates(parser), config.getModId()).forEach(pair -> {
                 try {
                     writeOutput(gson, pair.getA(), pair.getB());
                 } catch (Exception e) {
@@ -85,5 +86,49 @@ public class GenerateRecipeJsons {
         } else {
             throw new IOException("Failed to locate output directory: " + directory);
         }
+    }
+
+    private static class Config {
+        private String token;
+        private String modid;
+
+        private Config(String[] args) {
+            Arrays.stream(args).forEach(arg -> {
+                String[] split = arg.split("=");
+                if(split.length < 2) {
+                    System.out.println("Skipping invalid argument: " + arg);
+                    return;
+                }
+                try {
+                    this.getClass().getDeclaredField(split[0]).set(this, split[1]);
+                } catch (Exception e) {
+                    System.out.println("Skipping invalid argument: " + arg);
+                    e.printStackTrace();
+                }
+            });
+        }
+
+        @SuppressWarnings("unused")
+        public Config setToken(@Nullable String token) {
+            this.token = token;
+            return this;
+        }
+
+        @SuppressWarnings("unused")
+        public Config setModId(@Nullable String modId) {
+            this.modid = modId;
+            return this;
+        }
+
+        @Nullable
+        public String getToken() {
+            return this.token;
+        }
+
+        @Nullable
+        public String getModId() {
+            return this.modid;
+        }
+
     }
 }

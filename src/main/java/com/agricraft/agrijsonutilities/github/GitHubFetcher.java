@@ -48,14 +48,18 @@ public class GitHubFetcher {
         return jsons;
     }
 
-    public List<Pair<AgriJson, AgriJsonOutput>> processTemplates(List<JsonConversionTemplate> templates) throws IOException {
+    public List<Pair<AgriJson, AgriJsonOutput>> processTemplates(List<JsonConversionTemplate> templates, @Nullable String modId) throws IOException {
         if(templates.isEmpty()) {
             System.out.println("Received empty list of templates to process");
             return Collections.emptyList();
         }
         List<Pair<AgriJson, AgriJsonOutput>> output = Lists.newArrayList();
+        String url = GITHUB_API_BASE_URL + GITHUB_AGRIPLANTS_REPOSITORY;
+        if(modId != null) {
+            url = url + "mod_" + modId + "?ref=master";
+        }
         this.fetchFromDirRecursive(
-                this.queryGithubApi(GITHUB_API_BASE_URL + GITHUB_AGRIPLANTS_REPOSITORY),
+                this.queryGithubApi(url),
                 type -> templates.stream().map(JsonConversionTemplate::getSourceType).anyMatch(type::equals),
                 json -> templates.forEach(template -> {
                     AgriJsonOutput result = new AgriJsonOutput(
